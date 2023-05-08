@@ -23,7 +23,6 @@ mixin _$HourlyForecast {
   String get cod => throw _privateConstructorUsedError;
   int get message => throw _privateConstructorUsedError;
   int get cnt => throw _privateConstructorUsedError; // Number of timestamps
-// @Default([])
   List<TimeStamp> get list => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -150,10 +149,8 @@ class _$_HourlyForecast
   @override
   final int cnt;
 // Number of timestamps
-// @Default([])
   final List<TimeStamp> _list;
 // Number of timestamps
-// @Default([])
   @override
   List<TimeStamp> get list {
     if (_list is EqualUnmodifiableListView) return _list;
@@ -224,7 +221,6 @@ abstract class _HourlyForecast implements HourlyForecast {
   @override
   int get cnt;
   @override // Number of timestamps
-// @Default([])
   List<TimeStamp> get list;
   @override
   @JsonKey(ignore: true)

@@ -12,6 +12,7 @@ _$_TimeStamp _$$_TimeStampFromJson(Map<String, dynamic> json) => _$_TimeStamp(
       weather: (json['weather'] as List<dynamic>)
           .map((e) => Weather.fromJson(e as Map<String, dynamic>))
           .toList(),
+      clouds: Clouds.fromJson(json['clouds'] as Map<String, dynamic>),
       wind: Wind.fromJson(json['wind'] as Map<String, dynamic>),
       visibility: json['visibility'] as int,
       pop: (json['pop'] as num).toDouble(),
@@ -23,6 +24,7 @@ Map<String, dynamic> _$$_TimeStampToJson(_$_TimeStamp instance) =>
       'dt': instance.dt,
       'main': instance.main,
       'weather': instance.weather,
+      'clouds': instance.clouds,
       'wind': instance.wind,
       'visibility': instance.visibility,
       'pop': instance.pop,
@@ -80,4 +82,12 @@ Map<String, dynamic> _$$_WindToJson(_$_Wind instance) => <String, dynamic>{
       'speed': instance.speed,
       'deg': instance.deg,
       'gust': instance.gust,
+    };
+
+_$_Clouds _$$_CloudsFromJson(Map<String, dynamic> json) => _$_Clouds(
+      all: json['all'] as int,
+    );
+
+Map<String, dynamic> _$$_CloudsToJson(_$_Clouds instance) => <String, dynamic>{
+      'all': instance.all,
     };

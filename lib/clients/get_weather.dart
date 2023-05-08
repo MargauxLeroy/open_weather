@@ -7,8 +7,8 @@ Future<HourlyForecast> fetchWeather(String lattitude, String longitude) async {
   final Map<String, String> queryParameters = {
     'lat': lattitude,
     'lon': longitude,
-    'appid': AppConfiguration.API_KEY,
-    'units': 'metric'
+    'appid': AppConfiguration.apiKey,
+    'units': 'metric' // Get result in Celcius instead of Kelvin
   };
 
   const host = AppConfiguration.OPEN_WEATHER_ENDPOINT;
@@ -16,15 +16,11 @@ Future<HourlyForecast> fetchWeather(String lattitude, String longitude) async {
 
   final uri = Uri.https(host, path, queryParameters);
 
-  print("uri $uri");
-
   final response = await http.get(uri);
 
   print(' response $response');
 
   if (response.statusCode == 200) {
-    print(' toto');
-
     return HourlyForecast.fromJson(jsonDecode(response.body));
   } else {
     throw Exception('Failed to load weather');

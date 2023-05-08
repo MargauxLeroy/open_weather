@@ -12,7 +12,7 @@ class TimeStamp with _$TimeStamp {
     required int dt, // Datetime
     required TimeStampMain main,
     required List<Weather> weather,
-    // Clouds
+    required Clouds clouds,
     required Wind wind,
     required int visibility,
     required double pop,
@@ -64,4 +64,13 @@ class Wind with _$Wind {
   }) = _Wind;
 
   factory Wind.fromJson(Map<String, Object?> json) => _$WindFromJson(json);
+}
+
+@freezed
+class Clouds with _$Clouds {
+  const factory Clouds({
+    required int all,
+  }) = _Clouds;
+
+  factory Clouds.fromJson(Map<String, Object?> json) => _$CloudsFromJson(json);
 }

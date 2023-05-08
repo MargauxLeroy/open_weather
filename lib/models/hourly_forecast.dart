@@ -11,7 +11,6 @@ class HourlyForecast with _$HourlyForecast {
     required String cod,
     required int message,
     required int cnt, // Number of timestamps
-    // @Default([])
     required List<TimeStamp> list,
   }) = _HourlyForecast;
 

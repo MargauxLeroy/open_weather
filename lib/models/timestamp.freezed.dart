@@ -22,7 +22,8 @@ TimeStamp _$TimeStampFromJson(Map<String, dynamic> json) {
 mixin _$TimeStamp {
   int get dt => throw _privateConstructorUsedError; // Datetime
   TimeStampMain get main => throw _privateConstructorUsedError;
-  List<Weather> get weather => throw _privateConstructorUsedError; // Clouds
+  List<Weather> get weather => throw _privateConstructorUsedError;
+  Clouds get clouds => throw _privateConstructorUsedError;
   Wind get wind => throw _privateConstructorUsedError;
   int get visibility => throw _privateConstructorUsedError;
   double get pop => throw _privateConstructorUsedError; // Sys
@@ -44,12 +45,14 @@ abstract class $TimeStampCopyWith<$Res> {
       {int dt,
       TimeStampMain main,
       List<Weather> weather,
+      Clouds clouds,
       Wind wind,
       int visibility,
       double pop,
       @JsonKey(name: 'dt_txt') String dtTxt});
 
   $TimeStampMainCopyWith<$Res> get main;
+  $CloudsCopyWith<$Res> get clouds;
   $WindCopyWith<$Res> get wind;
 }
 
@@ -69,6 +72,7 @@ class _$TimeStampCopyWithImpl<$Res, $Val extends TimeStamp>
     Object? dt = null,
     Object? main = null,
     Object? weather = null,
+    Object? clouds = null,
     Object? wind = null,
     Object? visibility = null,
     Object? pop = null,
@@ -87,6 +91,10 @@ class _$TimeStampCopyWithImpl<$Res, $Val extends TimeStamp>
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as List<Weather>,
+      clouds: null == clouds
+          ? _value.clouds
+          : clouds // ignore: cast_nullable_to_non_nullable
+              as Clouds,
       wind: null == wind
           ? _value.wind
           : wind // ignore: cast_nullable_to_non_nullable
@@ -116,6 +124,14 @@ class _$TimeStampCopyWithImpl<$Res, $Val extends TimeStamp>
 
   @override
   @pragma('vm:prefer-inline')
+  $CloudsCopyWith<$Res> get clouds {
+    return $CloudsCopyWith<$Res>(_value.clouds, (value) {
+      return _then(_value.copyWith(clouds: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $WindCopyWith<$Res> get wind {
     return $WindCopyWith<$Res>(_value.wind, (value) {
       return _then(_value.copyWith(wind: value) as $Val);
@@ -134,6 +150,7 @@ abstract class _$$_TimeStampCopyWith<$Res> implements $TimeStampCopyWith<$Res> {
       {int dt,
       TimeStampMain main,
       List<Weather> weather,
+      Clouds clouds,
       Wind wind,
       int visibility,
       double pop,
@@ -141,6 +158,8 @@ abstract class _$$_TimeStampCopyWith<$Res> implements $TimeStampCopyWith<$Res> {
 
   @override
   $TimeStampMainCopyWith<$Res> get main;
+  @override
+  $CloudsCopyWith<$Res> get clouds;
   @override
   $WindCopyWith<$Res> get wind;
 }
@@ -159,6 +178,7 @@ class __$$_TimeStampCopyWithImpl<$Res>
     Object? dt = null,
     Object? main = null,
     Object? weather = null,
+    Object? clouds = null,
     Object? wind = null,
     Object? visibility = null,
     Object? pop = null,
@@ -177,6 +197,10 @@ class __$$_TimeStampCopyWithImpl<$Res>
           ? _value._weather
           : weather // ignore: cast_nullable_to_non_nullable
               as List<Weather>,
+      clouds: null == clouds
+          ? _value.clouds
+          : clouds // ignore: cast_nullable_to_non_nullable
+              as Clouds,
       wind: null == wind
           ? _value.wind
           : wind // ignore: cast_nullable_to_non_nullable
@@ -204,6 +228,7 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
       {required this.dt,
       required this.main,
       required final List<Weather> weather,
+      required this.clouds,
       required this.wind,
       required this.visibility,
       required this.pop,
@@ -226,7 +251,8 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
     return EqualUnmodifiableListView(_weather);
   }
 
-// Clouds
+  @override
+  final Clouds clouds;
   @override
   final Wind wind;
   @override
@@ -240,7 +266,7 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TimeStamp(dt: $dt, main: $main, weather: $weather, wind: $wind, visibility: $visibility, pop: $pop, dtTxt: $dtTxt)';
+    return 'TimeStamp(dt: $dt, main: $main, weather: $weather, clouds: $clouds, wind: $wind, visibility: $visibility, pop: $pop, dtTxt: $dtTxt)';
   }
 
   @override
@@ -251,6 +277,7 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
       ..add(DiagnosticsProperty('dt', dt))
       ..add(DiagnosticsProperty('main', main))
       ..add(DiagnosticsProperty('weather', weather))
+      ..add(DiagnosticsProperty('clouds', clouds))
       ..add(DiagnosticsProperty('wind', wind))
       ..add(DiagnosticsProperty('visibility', visibility))
       ..add(DiagnosticsProperty('pop', pop))
@@ -265,6 +292,7 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
             (identical(other.dt, dt) || other.dt == dt) &&
             (identical(other.main, main) || other.main == main) &&
             const DeepCollectionEquality().equals(other._weather, _weather) &&
+            (identical(other.clouds, clouds) || other.clouds == clouds) &&
             (identical(other.wind, wind) || other.wind == wind) &&
             (identical(other.visibility, visibility) ||
                 other.visibility == visibility) &&
@@ -279,6 +307,7 @@ class _$_TimeStamp with DiagnosticableTreeMixin implements _TimeStamp {
       dt,
       main,
       const DeepCollectionEquality().hash(_weather),
+      clouds,
       wind,
       visibility,
       pop,
@@ -303,6 +332,7 @@ abstract class _TimeStamp implements TimeStamp {
       {required final int dt,
       required final TimeStampMain main,
       required final List<Weather> weather,
+      required final Clouds clouds,
       required final Wind wind,
       required final int visibility,
       required final double pop,
@@ -317,7 +347,9 @@ abstract class _TimeStamp implements TimeStamp {
   TimeStampMain get main;
   @override
   List<Weather> get weather;
-  @override // Clouds
+  @override
+  Clouds get clouds;
+  @override
   Wind get wind;
   @override
   int get visibility;
@@ -1042,4 +1074,142 @@ abstract class _Wind implements Wind {
   @override
   @JsonKey(ignore: true)
   _$$_WindCopyWith<_$_Wind> get copyWith => throw _privateConstructorUsedError;
+}
+
+Clouds _$CloudsFromJson(Map<String, dynamic> json) {
+  return _Clouds.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Clouds {
+  int get all => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CloudsCopyWith<Clouds> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CloudsCopyWith<$Res> {
+  factory $CloudsCopyWith(Clouds value, $Res Function(Clouds) then) =
+      _$CloudsCopyWithImpl<$Res, Clouds>;
+  @useResult
+  $Res call({int all});
+}
+
+/// @nodoc
+class _$CloudsCopyWithImpl<$Res, $Val extends Clouds>
+    implements $CloudsCopyWith<$Res> {
+  _$CloudsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? all = null,
+  }) {
+    return _then(_value.copyWith(
+      all: null == all
+          ? _value.all
+          : all // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_CloudsCopyWith<$Res> implements $CloudsCopyWith<$Res> {
+  factory _$$_CloudsCopyWith(_$_Clouds value, $Res Function(_$_Clouds) then) =
+      __$$_CloudsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int all});
+}
+
+/// @nodoc
+class __$$_CloudsCopyWithImpl<$Res>
+    extends _$CloudsCopyWithImpl<$Res, _$_Clouds>
+    implements _$$_CloudsCopyWith<$Res> {
+  __$$_CloudsCopyWithImpl(_$_Clouds _value, $Res Function(_$_Clouds) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? all = null,
+  }) {
+    return _then(_$_Clouds(
+      all: null == all
+          ? _value.all
+          : all // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Clouds with DiagnosticableTreeMixin implements _Clouds {
+  const _$_Clouds({required this.all});
+
+  factory _$_Clouds.fromJson(Map<String, dynamic> json) =>
+      _$$_CloudsFromJson(json);
+
+  @override
+  final int all;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Clouds(all: $all)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Clouds'))
+      ..add(DiagnosticsProperty('all', all));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Clouds &&
+            (identical(other.all, all) || other.all == all));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, all);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CloudsCopyWith<_$_Clouds> get copyWith =>
+      __$$_CloudsCopyWithImpl<_$_Clouds>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CloudsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Clouds implements Clouds {
+  const factory _Clouds({required final int all}) = _$_Clouds;
+
+  factory _Clouds.fromJson(Map<String, dynamic> json) = _$_Clouds.fromJson;
+
+  @override
+  int get all;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CloudsCopyWith<_$_Clouds> get copyWith =>
+      throw _privateConstructorUsedError;
 }

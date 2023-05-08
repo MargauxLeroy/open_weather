@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:open_weather/widgets/home.view.dart';
+import 'package:open_weather/design_system/constants/theme.dart';
+import 'package:open_weather/presentation/home/home.view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:open_weather/presentation/sign_in/sign_in_view.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
@@ -20,14 +22,10 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      supportedLocales: const [
-        // Locale('en', 'US'),
-        Locale('fr', 'FR'),
-      ],
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      supportedLocales: const [Locale('fr', 'FR')],
+      theme: themeData,
       home: const HomeView(),
+      // home: const SignInView(),
     );
   }
 }
