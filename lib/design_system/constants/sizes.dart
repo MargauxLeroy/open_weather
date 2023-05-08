@@ -5,6 +5,7 @@ class AppPadding {
   static const padding12 = 12.0;
   static const padding16 = 16.0;
   static const padding24 = 24.0;
+  static const padding32 = 32.0;
 
   static const gap4 = 4.0;
   static const gap8 = 8.0;

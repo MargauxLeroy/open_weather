@@ -1,54 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
 
-// const serif = GoogleFonts.merriweather;
-// const sansSerif = GoogleFonts.manrope;
-const serif = 'Merriweather';
-const sansSerif = 'Manrope';
+final serif = GoogleFonts.merriweather().fontFamily;
+final sansSerif = GoogleFonts.manrope().fontFamily;
 
-const textTheme = TextTheme(
-  // Temp
+final textTheme = TextTheme(
+  /// Ex. Temperature of the day
   displayLarge: TextStyle(
-      fontFamily: sansSerif,
-      fontSize: 100.0,
-      fontWeight: FontWeight.w800,
-      color: AppColors.primary),
+    fontFamily: sansSerif,
+    fontSize: AppFontSizes.fs80,
+    fontWeight: FontWeight.w800,
+    color: AppColors.primary,
+  ),
+
+  /// Ex. Secondary weather informations
   displayMedium: TextStyle(
     fontFamily: sansSerif,
-    fontSize: 24.0,
+    fontSize: AppFontSizes.fs20,
     fontWeight: FontWeight.w600,
     color: AppColors.primary,
   ),
 
-  // AppBar, Titles,...
+  /// AppBar, Titles,...
   headlineLarge: TextStyle(
     fontFamily: sansSerif,
-    fontSize: 16.0,
+    fontSize: AppFontSizes.fs16,
+    fontWeight: FontWeight.w500,
   ),
 
-  // Buttons,...
+  /// Date of the day
+  headlineMedium: TextStyle(
+    fontFamily: serif,
+    fontSize: AppFontSizes.fs20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.light,
+  ),
+
+  /// Ex. Buttons
   labelLarge: TextStyle(
     fontFamily: sansSerif,
     fontSize: AppFontSizes.fs16,
-    // fontWeight:
+    fontWeight: FontWeight.w700,
   ),
 
-  // Textfields,...
+  /// Ex. Textfields labels
   labelMedium: TextStyle(
     fontFamily: serif,
-    fontSize: 14.0,
+    fontSize: AppFontSizes.fs14,
+    color: AppColors.light,
   ),
 
-  // Tags...
+  /// Ex. Secondary weather informations labels
+  labelSmall: TextStyle(
+    fontFamily: serif,
+    fontSize: AppFontSizes.fs12,
+    fontWeight: FontWeight.w600,
+    color: AppColors.light,
+  ),
+
+  /// Ex. Tags
   bodyMedium: TextStyle(
     fontFamily: sansSerif,
-    fontSize: 14.0,
-  ),
-
-  // Tags...
-  bodySmall: TextStyle(
-    fontFamily: sansSerif,
-    fontSize: 12.0,
+    fontSize: AppFontSizes.fs14,
+    fontWeight: FontWeight.w600,
+    color: AppColors.primary,
   ),
 );
 
@@ -56,6 +72,7 @@ class AppFontSizes {
   static const fs12 = 12.0;
   static const fs14 = 14.0;
   static const fs16 = 16.0;
+  static const fs20 = 20.0;
   static const fs24 = 24.0;
-  static const fs100 = 100.0;
+  static const fs80 = 80.0;
 }

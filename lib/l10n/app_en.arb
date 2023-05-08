@@ -1,10 +1,42 @@
 {
-    "welcome": "Welcome",
+    "welcome": "Welcome {userName}",
+    "@welcome": {
+        "description": "A message with a single parameter",
+        "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    },
     "login": "Login",
     "toLogIn": "Log in",
     "email": "Email",
+    "emailHint": "ex. john.doe@gmail.com",
     "password": "Password",
     "humidity": "Humidity",
     "cloudiness": "Cloudiness",
-    "windSpeed": "Wind speed"
+    "windSpeed": "Wind speed",
+    "humanizedDate": "{date}",
+    "@humanizedDate": {
+        "description": "A formated datetime",
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMMMMd"
+            }
+        }
+    },
+    "humanizedHour": "{hour}",
+    "@humanizedHour": {
+        "description": "A formated hourtime",
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "jm"
+            }
+        }
+    },
+    "waitingForData": "Waiting for data...",
+    "anErrorHaveOccured": "An error have occured. Please retry."
 }

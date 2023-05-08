@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
-import 'package:open_weather/design_system/constants/fonts.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WeatherInformation extends StatelessWidget {
+class WeatherSecondaryInformation extends StatelessWidget {
   final String humidity;
   final String cloudiness;
   final String windSpeed;
 
-  const WeatherInformation({
+  const WeatherSecondaryInformation({
     super.key,
     required this.humidity,
     required this.cloudiness,
@@ -24,26 +23,26 @@ class WeatherInformation extends StatelessWidget {
       color: AppColors.dark500,
       padding: const EdgeInsets.symmetric(
         horizontal: AppPadding.padding12,
-        vertical: AppPadding.padding24,
+        vertical: AppPadding.padding16,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          WeatherCaracteristic(
+          WeatherSecondaryInformationItem(
             label: l10n!.humidity,
-            icon: Icons.water,
+            icon: Icons.water_drop_outlined,
             metric: '%',
             value: humidity,
           ),
-          WeatherCaracteristic(
+          WeatherSecondaryInformationItem(
             label: l10n.cloudiness,
-            icon: Icons.cloud,
+            icon: Icons.cloud_outlined,
             metric: '%',
             value: cloudiness,
           ),
-          WeatherCaracteristic(
+          WeatherSecondaryInformationItem(
             label: l10n.windSpeed,
-            icon: Icons.wind_power_outlined,
+            icon: Icons.air,
             metric: 'm/s',
             value: windSpeed,
           ),
@@ -53,13 +52,13 @@ class WeatherInformation extends StatelessWidget {
   }
 }
 
-class WeatherCaracteristic extends StatelessWidget {
+class WeatherSecondaryInformationItem extends StatelessWidget {
   final String label;
   final String value;
   final IconData icon;
   final String metric;
 
-  const WeatherCaracteristic({
+  const WeatherSecondaryInformationItem({
     super.key,
     required this.label,
     required this.value,
@@ -69,24 +68,17 @@ class WeatherCaracteristic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Container(
       padding: const EdgeInsets.all(AppPadding.padding16),
       child: Column(
         children: [
-          Icon(icon, size: 48, color: AppColors.dark300),
+          Icon(icon, size: AppIconsSizes.is48, color: AppColors.dark300),
           const SizedBox(height: AppPadding.gap12),
-          Text(
-            '$value$metric',
-            style: const TextStyle(
-              fontSize: AppFontSizes.fs24,
-              color: AppColors.primary,
-            ),
-          ),
+          Text('$value$metric', style: textTheme.displayMedium),
           const SizedBox(height: AppPadding.gap4),
-          Text(
-            label.toUpperCase(),
-            style: const TextStyle(color: AppColors.light),
-          ),
+          Text(label.toUpperCase(), style: textTheme.labelSmall),
         ],
       ),
     );

@@ -7,7 +7,7 @@ Future<HourlyForecast> fetchWeather(String lattitude, String longitude) async {
   final Map<String, String> queryParameters = {
     'lat': lattitude,
     'lon': longitude,
-    'appid': AppConfiguration.apiKey,
+    'appid': AppConfiguration.API_KEY,
     'units': 'metric' // Get result in Celcius instead of Kelvin
   };
 
@@ -17,8 +17,6 @@ Future<HourlyForecast> fetchWeather(String lattitude, String longitude) async {
   final uri = Uri.https(host, path, queryParameters);
 
   final response = await http.get(uri);
-
-  print(' response $response');
 
   if (response.statusCode == 200) {
     return HourlyForecast.fromJson(jsonDecode(response.body));

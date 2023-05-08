@@ -8,6 +8,8 @@ abstract class AppColors {
   static const dark300 = Color(0xff867B7B);
 
   static const light = Color(0xffE3E3E3);
+
+  static const error = Color(0xffEC4C4C);
 }
 
 const colorScheme = ColorScheme(
@@ -16,7 +18,7 @@ const colorScheme = ColorScheme(
   onPrimary: AppColors.dark800,
   secondary: AppColors.dark500,
   onSecondary: AppColors.dark300,
-  error: Colors.red,
+  error: AppColors.error,
   onError: AppColors.light,
   background: AppColors.dark800,
   onBackground: AppColors.light,
