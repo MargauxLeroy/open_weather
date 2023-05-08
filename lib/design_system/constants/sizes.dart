@@ -9,6 +9,7 @@ class AppPadding {
   static const gap4 = 4.0;
   static const gap8 = 8.0;
   static const gap12 = 12.0;
+  static const gap16 = 16.0;
   static const gap24 = 24.0;
   static const gap32 = 32.0;
 }

@@ -41,6 +41,9 @@ dependencies:
   l10n_flutter: ^1.0.6
   flutter_localization: ^0.1.10
   google_fonts: ^4.0.4
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +67,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
   # assets:
   # - google_fonts/

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
+import 'package:open_weather/design_system/constants/fonts.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeatherInformation extends StatelessWidget {
   final String humidity;
@@ -16,6 +18,8 @@ class WeatherInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Container(
       color: AppColors.dark500,
       padding: const EdgeInsets.symmetric(
@@ -26,19 +30,19 @@ class WeatherInformation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           WeatherCaracteristic(
-            label: 'Humidity',
+            label: l10n!.humidity,
             icon: Icons.water,
             metric: '%',
             value: humidity,
           ),
           WeatherCaracteristic(
-            label: 'Cloudiness',
+            label: l10n.cloudiness,
             icon: Icons.cloud,
             metric: '%',
             value: cloudiness,
           ),
           WeatherCaracteristic(
-            label: 'Wind Speed',
+            label: l10n.windSpeed,
             icon: Icons.wind_power_outlined,
             metric: 'm/s',
             value: windSpeed,
@@ -69,17 +73,15 @@ class WeatherCaracteristic extends StatelessWidget {
       padding: const EdgeInsets.all(AppPadding.padding16),
       child: Column(
         children: [
-          Icon(
-            icon,
-            size: 48,
-            color: AppColors.dark300,
-          ),
+          Icon(icon, size: 48, color: AppColors.dark300),
           const SizedBox(height: AppPadding.gap12),
-          Text('$value$metric',
-              style: const TextStyle(
-                fontSize: 24,
-                color: AppColors.primary,
-              )),
+          Text(
+            '$value$metric',
+            style: const TextStyle(
+              fontSize: AppFontSizes.fs24,
+              color: AppColors.primary,
+            ),
+          ),
           const SizedBox(height: AppPadding.gap4),
           Text(
             label.toUpperCase(),

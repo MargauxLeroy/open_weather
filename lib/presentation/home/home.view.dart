@@ -6,10 +6,10 @@ import 'package:open_weather/design_system/constants/fonts.dart';
 import 'package:open_weather/design_system/constants/radius.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
 import 'package:open_weather/models/hourly_forecast.dart';
-import 'package:open_weather/models/timestamp.dart';
 import 'package:open_weather/design_system/widgets/app_dropdown.dart';
 import 'package:open_weather/design_system/widgets/app_tag.dart';
 import 'package:open_weather/presentation/home/widgets/weather_information.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -32,6 +32,8 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     final textTheme = Theme.of(context).textTheme;
 
     return SafeArea(
@@ -48,8 +50,8 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           titleSpacing: AppPadding.gap4,
-          title: const Text('Bonjour Margaux'),
-          actions: [AppDropdown(value: 'toto')],
+          title: Text('${l10n!.welcome} Margaux'),
+          actions: [const AppDropdown(value: 'toto')],
         ),
         body: FutureBuilder<HourlyForecast>(
           future: futureHourlyForecast,
