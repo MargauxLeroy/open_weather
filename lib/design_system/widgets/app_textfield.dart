@@ -30,7 +30,7 @@ class AppTextField extends StatelessWidget {
       children: [
         Text(label, style: labelStyle),
         const SizedBox(height: 12),
-        TextField(
+        TextFormField(
           obscureText: obscureText,
           decoration: InputDecoration(
             hintText: hint ?? hint,

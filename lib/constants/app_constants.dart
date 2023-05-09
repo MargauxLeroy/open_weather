@@ -1,6 +1,7 @@
+
 // ignore_for_file: constant_identifier_names
 
-class Locations {
+class AppConstants {
   static const locations = ['Paris', 'New York'];
 
   static const PARIS_LAT = '48.866667';

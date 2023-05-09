@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:open_weather/configuration/configuration.dart';
+import 'package:open_weather/configuration/app_configuration.dart';
 import 'package:http/http.dart' as http;
-import 'package:open_weather/models/hourly_forecast.dart';
+import 'package:open_weather/models/weather/hourly_forecast.dart';
 
 Future<HourlyForecast> fetchWeather(String lattitude, String longitude) async {
   final Map<String, String> queryParameters = {

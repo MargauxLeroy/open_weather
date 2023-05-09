@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:open_weather/models/timestamp.dart';
+import 'package:open_weather/models/weather/timestamp.dart';
 
 part 'hourly_forecast.freezed.dart';
 part 'hourly_forecast.g.dart';
@@ -11,7 +11,7 @@ class HourlyForecast with _$HourlyForecast {
     required String cod,
     required int message,
     required int cnt, // Number of timestamps
-    required List<TimeStamp> list,
+    required List<Timestamp> list,
   }) = _HourlyForecast;
 
   factory HourlyForecast.fromJson(Map<String, Object?> json) =>

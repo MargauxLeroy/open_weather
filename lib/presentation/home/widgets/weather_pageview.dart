@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:open_weather/configuration/configuration.dart';
+import 'package:open_weather/configuration/app_configuration.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
 import 'package:open_weather/design_system/widgets/app_tag.dart';
-import 'package:open_weather/models/timestamp.dart';
-import 'package:open_weather/presentation/home/widgets/weather_temperature.dart';
+import 'package:open_weather/models/weather/timestamp.dart';
+import 'package:open_weather/presentation/home/widgets/weather_temperature_tile.dart';
 
-class WeatherDayPageview extends StatelessWidget {
-  final TimeStamp timestampMain;
-  final List<TimeStamp> timestamps;
+class WeatherPageview extends StatelessWidget {
+  final Timestamp timestampMain;
+  final List<Timestamp> timestamps;
 
-  const WeatherDayPageview({
+  const WeatherPageview({
     super.key,
     required this.timestampMain,
     required this.timestamps,
@@ -52,7 +52,7 @@ class WeatherDayPageview extends StatelessWidget {
                     children: [
                       ...timestamps.map(
                         (timestamp) {
-                          return WeatherTemperature(
+                          return WeatherTemperatureTile(
                             temperature: timestamp.main.temp,
                             datetime: DateTime.parse(timestamp.dtTxt),
                           );

@@ -23,7 +23,7 @@ mixin _$HourlyForecast {
   String get cod => throw _privateConstructorUsedError;
   int get message => throw _privateConstructorUsedError;
   int get cnt => throw _privateConstructorUsedError; // Number of timestamps
-  List<TimeStamp> get list => throw _privateConstructorUsedError;
+  List<Timestamp> get list => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $HourlyForecastCopyWith<$Res> {
           HourlyForecast value, $Res Function(HourlyForecast) then) =
       _$HourlyForecastCopyWithImpl<$Res, HourlyForecast>;
   @useResult
-  $Res call({String cod, int message, int cnt, List<TimeStamp> list});
+  $Res call({String cod, int message, int cnt, List<Timestamp> list});
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$HourlyForecastCopyWithImpl<$Res, $Val extends HourlyForecast>
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<TimeStamp>,
+              as List<Timestamp>,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$_HourlyForecastCopyWith<$Res>
       __$$_HourlyForecastCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cod, int message, int cnt, List<TimeStamp> list});
+  $Res call({String cod, int message, int cnt, List<Timestamp> list});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$$_HourlyForecastCopyWithImpl<$Res>
       list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<TimeStamp>,
+              as List<Timestamp>,
     ));
   }
 }
@@ -136,7 +136,7 @@ class _$_HourlyForecast
       {required this.cod,
       required this.message,
       required this.cnt,
-      required final List<TimeStamp> list})
+      required final List<Timestamp> list})
       : _list = list;
 
   factory _$_HourlyForecast.fromJson(Map<String, dynamic> json) =>
@@ -149,10 +149,10 @@ class _$_HourlyForecast
   @override
   final int cnt;
 // Number of timestamps
-  final List<TimeStamp> _list;
+  final List<Timestamp> _list;
 // Number of timestamps
   @override
-  List<TimeStamp> get list {
+  List<Timestamp> get list {
     if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_list);
@@ -209,7 +209,7 @@ abstract class _HourlyForecast implements HourlyForecast {
       {required final String cod,
       required final int message,
       required final int cnt,
-      required final List<TimeStamp> list}) = _$_HourlyForecast;
+      required final List<Timestamp> list}) = _$_HourlyForecast;
 
   factory _HourlyForecast.fromJson(Map<String, dynamic> json) =
       _$_HourlyForecast.fromJson;
@@ -221,7 +221,7 @@ abstract class _HourlyForecast implements HourlyForecast {
   @override
   int get cnt;
   @override // Number of timestamps
-  List<TimeStamp> get list;
+  List<Timestamp> get list;
   @override
   @JsonKey(ignore: true)
   _$$_HourlyForecastCopyWith<_$_HourlyForecast> get copyWith =>

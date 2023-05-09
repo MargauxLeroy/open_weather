@@ -1,4 +1,12 @@
 {
+    "login": "Login",
+    "toLogIn": "Log in",
+    "email": "Email",
+    "emailHint": "ex. john.doe@gmail.com",
+    "password": "Password",
+    "textFieldsNeedToBeFilled": "Textfields need to be filled",
+    "emailMustBeValid": " Email adress must be valid",
+    "passwordMustBeAtLeast6Characters": "Password must be at least 6 characters",
     "welcome": "Welcome {userName}",
     "@welcome": {
         "description": "A message with a single parameter",
@@ -9,14 +17,6 @@
             }
         }
     },
-    "login": "Login",
-    "toLogIn": "Log in",
-    "email": "Email",
-    "emailHint": "ex. john.doe@gmail.com",
-    "password": "Password",
-    "humidity": "Humidity",
-    "cloudiness": "Cloudiness",
-    "windSpeed": "Wind speed",
     "humanizedDate": "{date}",
     "@humanizedDate": {
         "description": "A formated datetime",
@@ -37,6 +37,9 @@
             }
         }
     },
+    "humidity": "Humidity",
+    "cloudiness": "Cloudiness",
+    "windSpeed": "Wind speed",
     "waitingForData": "Waiting for data...",
     "anErrorHaveOccured": "An error have occured. Please retry."
 }

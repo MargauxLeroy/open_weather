@@ -28,19 +28,19 @@ class WeatherSecondaryInformation extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          WeatherSecondaryInformationItem(
+          _WeatherSecondaryInformationItem(
             label: l10n!.humidity,
             icon: Icons.water_drop_outlined,
             metric: '%',
             value: humidity,
           ),
-          WeatherSecondaryInformationItem(
+          _WeatherSecondaryInformationItem(
             label: l10n.cloudiness,
             icon: Icons.cloud_outlined,
             metric: '%',
             value: cloudiness,
           ),
-          WeatherSecondaryInformationItem(
+          _WeatherSecondaryInformationItem(
             label: l10n.windSpeed,
             icon: Icons.air,
             metric: 'm/s',
@@ -52,14 +52,13 @@ class WeatherSecondaryInformation extends StatelessWidget {
   }
 }
 
-class WeatherSecondaryInformationItem extends StatelessWidget {
+class _WeatherSecondaryInformationItem extends StatelessWidget {
   final String label;
   final String value;
   final IconData icon;
   final String metric;
 
-  const WeatherSecondaryInformationItem({
-    super.key,
+  const _WeatherSecondaryInformationItem({
     required this.label,
     required this.value,
     required this.icon,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/clients/get_weather.dart';
-import 'package:open_weather/configuration/locations.dart';
+import 'package:open_weather/constants/app_constants.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
 import 'package:open_weather/design_system/constants/radius.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
 import 'package:open_weather/design_system/widgets/app_error.dart';
-import 'package:open_weather/models/hourly_forecast.dart';
 import 'package:open_weather/design_system/widgets/app_dropdown.dart';
-import 'package:open_weather/models/timestamp.dart';
-import 'package:open_weather/presentation/home/widgets/weather_day_pageview.dart';
+import 'package:open_weather/models/weather/hourly_forecast.dart';
+import 'package:open_weather/models/weather/timestamp.dart';
+import 'package:open_weather/presentation/home/widgets/weather_pageview.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:open_weather/presentation/home/widgets/weather_secondary_information.dart';
 import 'package:open_weather/utils/utils.dart';
@@ -39,8 +39,8 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _futureHourlyForecast = fetchWeather(
-      Locations.PARIS_LAT,
-      Locations.PARIS_LON,
+      AppConstants.PARIS_LAT,
+      AppConstants.PARIS_LON,
     );
   }
 
@@ -64,9 +64,8 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  /// TODO: À optimiser
-  List<List<TimeStamp>> _filterByDay(List<TimeStamp> timestamps) {
-    Map<String, List<TimeStamp>> days = {};
+  List<List<Timestamp>> _filterByDay(List<Timestamp> timestamps) {
+    Map<String, List<Timestamp>> days = {};
 
     for (var timestamp in timestamps) {
       String day = timestamp.dtTxt.substring(0, 10).toString();
@@ -89,10 +88,7 @@ class _HomeViewState extends State<HomeView> {
 
     final appError = AppError(
       message: l10n!.anErrorHaveOccured,
-      onTap: () => fetchWeather(
-        Locations.PARIS_LAT,
-        Locations.PARIS_LON,
-      ),
+      onTap: () {},
     );
 
     return SafeArea(
@@ -115,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
               margin: const EdgeInsets.only(right: AppPadding.gap24),
               padding:
                   const EdgeInsets.symmetric(vertical: AppPadding.padding16),
-              child: AppDropdown(value: Locations.locations.first),
+              child: AppDropdown(value: AppConstants.locations.first),
             )
           ],
         ),
@@ -186,7 +182,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                         children: [
                           ...filteredList.map(
-                            (day) => WeatherDayPageview(
+                            (day) => WeatherPageview(
                               timestampMain: day.first,
                               timestamps: day,
                             ),

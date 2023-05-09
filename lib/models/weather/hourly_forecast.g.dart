@@ -12,7 +12,7 @@ _$_HourlyForecast _$$_HourlyForecastFromJson(Map<String, dynamic> json) =>
       message: json['message'] as int,
       cnt: json['cnt'] as int,
       list: (json['list'] as List<dynamic>)
-          .map((e) => TimeStamp.fromJson(e as Map<String, dynamic>))
+          .map((e) => Timestamp.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

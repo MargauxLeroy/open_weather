@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:open_weather/configuration/configuration.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
 import 'package:open_weather/design_system/widgets/app_textfield.dart';
@@ -15,31 +14,39 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+  late AppLocalizations _l10n;
+
   String _email = '';
   String _password = '';
 
   String _formMessage = '';
 
-  bool isLoginValid() {
-    if (_email.isEmpty || _password.isEmpty) {
-      setState(() => _formMessage = 'Textfields need to be filled');
+  @override
+  void didChangeDependencies() {
+    _l10n = AppLocalizations.of(context)!;
+    super.didChangeDependencies();
+  }
+
+  bool _isLoginValid() {
+    if (_email.isEmpty && _password.isEmpty) {
+      setState(() => _formMessage = _l10n.textFieldsNeedToBeFilled);
       return false;
     }
 
     if (!isEmailFormatValid(_email)) {
-      setState(() => _formMessage = 'Email adress must be valid');
+      setState(() => _formMessage = _l10n.emailMustBeValid);
       return false;
     }
 
     if (_password.length < 6) {
-      setState(() => _formMessage = 'Password must be at least 6 characters');
+      setState(() => _formMessage = _l10n.passwordMustBeAtLeast6Characters);
       return false;
     }
 
     return true;
   }
 
-  void onLoginPressed() {
+  void _goToHome() {
     Navigator.pushNamed(
       context,
       '/loggued',
@@ -64,7 +71,6 @@ class _SignInViewState extends State<SignInView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Image.network(AppConfiguration.iconUrl('10d')),
               AppTextField(
                 label: l10n.email,
                 icon: Icons.person,
@@ -81,8 +87,8 @@ class _SignInViewState extends State<SignInView> {
               const SizedBox(height: AppPadding.gap24),
               ElevatedButton(
                 onPressed: () {
-                  if (isLoginValid()) {
-                    onLoginPressed();
+                  if (_isLoginValid()) {
+                    _goToHome();
                   }
                 },
                 child: Text(l10n.toLogIn),

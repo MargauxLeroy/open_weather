@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:open_weather/design_system/constants/colors.dart';
 import 'package:open_weather/design_system/constants/sizes.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WeatherTemperature extends StatelessWidget {
+class WeatherTemperatureTile extends StatelessWidget {
   final double temperature;
   final DateTime datetime;
 
-  const WeatherTemperature({
+  const WeatherTemperatureTile({
     super.key,
     required this.temperature,
     required this.datetime,
