@@ -14,7 +14,7 @@ git clone https://github.com/MargauxLeroy/open_weather.git
 ### Se positionner sur la branche dev
 
 ```bash
-git checkout branch/dev
+git checkout dev
 ```
 
 ### Récupérer les dépendances utilisées dans le projet
