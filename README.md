@@ -23,6 +23,18 @@ git checkout dev
 flutter pub get
 ```
 
+### Lancer le projet
+
+Le projet peut être lancé en mode debug avec une rapide configuration vscode ou avec :
+
+```bash
+flutter run
+```
+
+### Se connecter
+
+Une fois le projet lancé, il suffit de renseigner n'importe quelle adresse email (ayant un format valide) et un mot de passe d'au moins 6 caractères.
+
 ## Développement
 
 ### Mettre à jour les modèles
