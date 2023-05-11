@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('en', 'EN'), // English, England
-        Locale('fr', 'FR') // French, France
+        // Locale('fr', 'FR') // French, France
       ],
       theme: themeData,
       initialRoute: '/',
